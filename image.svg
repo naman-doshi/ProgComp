@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20001102//EN" 
+ "http://www.w3.org/TR/2000/CR-SVG-20001102/DTD/svg-20001102.dtd"> 
+
+<svg width="1000" height="800"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+
+<defs>
+  <style type="text/css">
+  <![CDATA[
+
+    text.C { text-anchor:middle; }   /* centred */
+    text.R { text-anchor:end; }      /* right-justified */
+    text.title { font-size:16px; font-family:Arial,Helvetica,sansserif; font-weight:bold; }
+
+    .bar { stroke:#888888; stroke-width:0.5px; }
+    .unordered { fill:#E7CACA; stroke:#B54040; }
+    .bg {fill:#888888;}
+    .shuffled { fill:#E7CACA;}
+    .home {fill:#DEE7BE;}
+    .selected {fill:#FFFF66;}
+    .error {fill:#F72424;}
+
+    .tex {font-size: 32px; font-weight:bold; }
+
+    .sep { stroke:#444444; stroke-width:0.8px; stroke-dasharray:5,3; }
+    .border { stroke: #AAAAAA; stroke-width:3px; fill:#FFFFF0; }
+
+    .pink { fill:#FFB5DC; }
+    .skyblue { fill:#87CEEB; }
+  ]]>
+  </style>
+
+  <!-- define an equilateral triangle centred at the origin with base 10px long. 8.66 = 10sind(60) -->
+  <g id="triangle">
+    <path  d="M0,-4.33 l-5,8.66 h10z" />  <!-- Moveto; relative lineto; relative horizontal lineto; close path -->
+  </g>
+
+  <!-- Adapted from http://ledrug.wordpress.com/2010/09/30/learning-svg-lesson-2/ -->
+
+  <filter id="bevel" x0="-50%" y0="-50%" width="200%" height="200%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+    <feOffset dy="-1" dx="-1"/>
+    <feComposite in2="SourceAlpha" operator="arithmetic"
+            k2="-1" k3="1" result="hlDiff"/>
+    <feFlood flood-color="black" flood-opacity="1.0"/>
+    <feComposite in2="hlDiff" operator="in"/>
+    <feComposite in2="SourceGraphic" operator="over" result="withGlow"/>
+
+    <feOffset in="blur" dy="2" dx="2"/>
+    <feComposite in2="SourceAlpha" operator="arithmetic"
+            k2="-1" k3="1" result="shadowDiff"/>
+    <feFlood flood-color="white" flood-opacity="0.7"/>
+    <feComposite in2="shadowDiff" operator="in"/>
+    <feComposite in2="withGlow" operator="over"/>
+  </filter>
+
+</defs>
+<rect class="border" x="0" y="0" width="1000" height="800" />
+<text class="title C" x="500.0" y="66.66666666666667">15 Puzzle</text>
+<rect id="" class="bg" filter="" x="320" y="200" width="320" height="320" >
+</rect>
+<g id="" class="" transform="translate(0, 0)" >
+  <rect id="" class="shuffled" filter="url(#bevel)" x="320" y="200" width="80" height="80" >
+  <animate attributeName="fill" fill="freeze" begin="0.2s" dur="2s" to="#DEE7BE" />
+</rect>
+  <text id="" class="tex" x="350.0" y="250.0" >
+1</text>
+</g>
+<g id="" class="" transform="translate(0, 0)" >
+  <rect id="" class="shuffled" filter="url(#bevel)" x="560" y="440" width="80" height="80" >
+</rect>
+  <text id="" class="tex" x="590.0" y="490.0" >
+2</text>
+</g>
+<g id="" class="" transform="translate(0, 0)" >
+  <rect id="" class="shuffled" filter="url(#bevel)" x="400" y="200" width="80" height="80" >
+</rect>
+  <text id="" class="tex" x="430.0" y="250.0" >
+3</text>
+</g>
+<g id="" class="" transform="translate(0, 0)" >
+  <animateTransform attributeName="transform" type="translate" begin="6.2s" from="0 0" to="0 -80" dur="2s" fill="freeze" />
+  <rect id="" class="shuffled" filter="url(#bevel)" x="480" y="440" width="80" height="80" >
+  <animate attributeName="fill" fill="freeze" begin="4.2s" dur="2s" to="#FFFF66" />
+  <animate attributeName="fill" fill="freeze" begin="6.2s" dur="2s" to="#E7CACA" />
+</rect>
+  <text id="" class="tex" x="510.0" y="490.0" >
+4</text>
+</g>
+<g id="" class="" transform="translate(0, 0)" >
+  <rect id="" class="shuffled" filter="url(#bevel)" x="400" y="280" width="80" height="80" >
+</rect>
+  <text id="" class="tex" x="430.0" y="330.0" >
+5</text>
+</g>
+<g id="" class="" transform="translate(0, 0)" >
+  <rect id="" class="shuffled" filter="url(#bevel)" x="480" y="200" width="80" height="80" >
+</rect>
+  <text id="" class="tex" x="510.0" y="250.0" >
+6</text>
+</g>
+<g id="" class="" transform="translate(0, 0)" >
+  <rect id="" class="shuffled" filter="url(#bevel)" x="320" y="360" width="80" height="80" >
+  <animate attributeName="fill" fill="freeze" begin="12.2s" dur="2s" to="#F72424" />
+</rect>
+  <text id="" class="tex" x="350.0" y="410.0" >
+7</text>
+</g>
+<g id="" class="" transform="translate(0, 0)" >
+  <rect id="" class="shuffled" filter="url(#bevel)" x="320" y="440" width="80" height="80" >
+</rect>
+  <text id="" class="tex" x="350.0" y="490.0" >
+8</text>
+</g>
+<g id="" class="" transform="translate(0, 0)" >
+  <animateTransform attributeName="transform" type="translate" begin="10.2s" from="0 0" to="80 0" dur="2s" fill="freeze" />
+  <rect id="" class="shuffled" filter="url(#bevel)" x="400" y="440" width="80" height="80" >
+  <animate attributeName="fill" fill="freeze" begin="8.2s" dur="2s" to="#FFFF66" />
+  <animate attributeName="fill" fill="freeze" begin="10.2s" dur="2s" to="#E7CACA" />
+</rect>
+  <text id="" class="tex" x="430.0" y="490.0" >
+9</text>
+</g>
+<g id="" class="" transform="translate(0, 0)" >
+  <rect id="" class="shuffled" filter="url(#bevel)" x="480" y="280" width="80" height="80" >
+</rect>
+  <text id="" class="tex" x="502.0" y="330.0" >
+10</text>
+</g>
+<g id="" class="" transform="translate(0, 0)" >
+  <rect id="" class="shuffled" filter="url(#bevel)" x="320" y="280" width="80" height="80" >
+</rect>
+  <text id="" class="tex" x="342.0" y="330.0" >
+11</text>
+</g>
+<g id="" class="" transform="translate(0, 0)" >
+  <animateTransform attributeName="transform" type="translate" begin="2.2s" from="0 0" to="80 0" dur="2s" fill="freeze" />
+  <rect id="" class="shuffled" filter="url(#bevel)" x="480" y="360" width="80" height="80" >
+  <animate attributeName="fill" fill="freeze" begin="0.2s" dur="2s" to="#FFFF66" />
+  <animate attributeName="fill" fill="freeze" begin="2.2s" dur="2s" to="#DEE7BE" />
+</rect>
+  <text id="" class="tex" x="502.0" y="410.0" >
+12</text>
+</g>
+<g id="" class="" transform="translate(0, 0)" >
+  <rect id="" class="shuffled" filter="url(#bevel)" x="560" y="280" width="80" height="80" >
+</rect>
+  <text id="" class="tex" x="582.0" y="330.0" >
+13</text>
+</g>
+<g id="" class="" transform="translate(0, 0)" >
+  <rect id="" class="shuffled" filter="url(#bevel)" x="560" y="200" width="80" height="80" >
+</rect>
+  <text id="" class="tex" x="582.0" y="250.0" >
+14</text>
+</g>
+<g id="" class="" transform="translate(0, 0)" >
+  <rect id="" class="shuffled" filter="url(#bevel)" x="400" y="360" width="80" height="80" >
+</rect>
+  <text id="" class="tex" x="422.0" y="410.0" >
+15</text>
+</g>
+</svg>

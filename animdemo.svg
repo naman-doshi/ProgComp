@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20001102//EN" 
+ "http://www.w3.org/TR/2000/CR-SVG-20001102/DTD/svg-20001102.dtd"> 
+
+<svg width="600" height="400"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+
+<defs>
+  <style type="text/css">
+  <![CDATA[
+
+    text.C { text-anchor:middle; }   /* centred */
+    text.R { text-anchor:end; }      /* right-justified */
+    text.title { font-size:16px; font-family:Arial,Helvetica,sansserif; font-weight:bold; }
+
+    .bar { stroke:#888888; stroke-width:0.5px; }
+    .unordered { fill:#E7CACA; stroke:#B54040; }
+
+    .sep { stroke:#444444; stroke-width:0.8px; stroke-dasharray:5,3; }
+    .border { stroke: #AAAAAA; stroke-width:3px; fill:#FFFFF0; }
+
+    .pink { fill:#FFB5DC; }
+    .skyblue { fill:#87CEEB; }
+  ]]>
+  </style>
+
+  <!-- define an equilateral triangle centred at the origin with base 10px long. 8.66 = 10sind(60) -->
+  <g id="triangle">
+    <path  d="M0,-4.33 l-5,8.66 h10z" />  <!-- Moveto; relative lineto; relative horizontal lineto; close path -->
+  </g>
+
+  <!-- Adapted from http://ledrug.wordpress.com/2010/09/30/learning-svg-lesson-2/ -->
+
+  <filter id="bevel" x0="-50%" y0="-50%" width="200%" height="200%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+    <feOffset dy="-1" dx="-1"/>
+    <feComposite in2="SourceAlpha" operator="arithmetic"
+            k2="-1" k3="1" result="hlDiff"/>
+    <feFlood flood-color="black" flood-opacity="1.0"/>
+    <feComposite in2="hlDiff" operator="in"/>
+    <feComposite in2="SourceGraphic" operator="over" result="withGlow"/>
+
+    <feOffset in="blur" dy="2" dx="2"/>
+    <feComposite in2="SourceAlpha" operator="arithmetic"
+            k2="-1" k3="1" result="shadowDiff"/>
+    <feFlood flood-color="white" flood-opacity="0.7"/>
+    <feComposite in2="shadowDiff" operator="in"/>
+    <feComposite in2="withGlow" operator="over"/>
+  </filter>
+
+</defs>
+
+<rect class="border" x="0" y="0" width="600" height="400" />
+<title> Insertion sort</title>
+<line class="sep" x1="540.0" x2="540.0" y1="370.0" y2="40.0" opacity="0">
+  <animate attributeName="opacity" fill="freeze" begin="0s" dur="1.5s" to="1"  />
+  <animate attributeName="opacity" fill="freeze" begin="25.2s" dur="1.5s" to="0"  />   <!-- fade -->
+</line>
+
+<rect id="bar0" class="bar unordered" filter="url(#bevel)" x="30.0" y="295.7" width="20" height="74.35">
+  <animate attributeName="x" fill="freeze" begin="23.6s" dur="0.4s" to="550" />
+  <animate attributeName="fill" fill="freeze" begin="23.6s" dur="0.4s" to="#FFFF66"  />
+  <animate attributeName="stroke" fill="freeze" begin="23.6s" dur="0.4s" to="#888888"  />
+  <animate attributeName="x" fill="freeze" begin="24.8s" dur="0.4s" to="150" />
+  <animate attributeName="fill" fill="freeze" begin="25.2s" dur="0.4s" to="#DEE7BE"  />
+  <animate attributeName="stroke" fill="freeze" begin="25.2s" dur="0.4s" to="#748829"  />
+</rect>
+<rect id="bar1" class="bar unordered" filter="url(#bevel)" x="70.0" y="66.7" width="20" height="303.3">
+  <animate attributeName="x" fill="freeze" begin="18.8s" dur="0.4s" to="550" />
+  <animate attributeName="fill" fill="freeze" begin="18.8s" dur="0.4s" to="#FFFF66"  />
+  <animate attributeName="stroke" fill="freeze" begin="18.8s" dur="0.4s" to="#888888"  />
+  <animate attributeName="x" fill="freeze" begin="23.2s" dur="0.4s" to="510" />
+  <animate attributeName="fill" fill="freeze" begin="23.6s" dur="0.4s" to="#DEE7BE"  />
+  <animate attributeName="stroke" fill="freeze" begin="23.6s" dur="0.4s" to="#748829"  />
+</rect>
+<rect id="bar2" class="bar unordered" filter="url(#bevel)" x="110.0" y="301.8" width="20" height="68.24">
+  <animate attributeName="x" fill="freeze" begin="17.6s" dur="0.4s" to="550" />
+  <animate attributeName="fill" fill="freeze" begin="17.6s" dur="0.4s" to="#FFFF66"  />
+  <animate attributeName="stroke" fill="freeze" begin="17.6s" dur="0.4s" to="#888888"  />
+  <animate attributeName="x" fill="freeze" begin="18.4s" dur="0.4s" to="190" />
+  <animate attributeName="fill" fill="freeze" begin="18.8s" dur="0.4s" to="#DEE7BE"  />
+  <animate attributeName="stroke" fill="freeze" begin="18.8s" dur="0.4s" to="#748829"  />
+  <animate attributeName="x" fill="freeze" begin="19.6s" dur="0.4s" to="150" />
+  <animate attributeName="x" fill="freeze" begin="24.4s" dur="0.4s" to="110" />
+</rect>
+<rect id="bar3" class="bar unordered" filter="url(#bevel)" x="150.0" y="130.8" width="20" height="239.2">
+  <animate attributeName="x" fill="freeze" begin="14.8s" dur="0.4s" to="550" />
+  <animate attributeName="fill" fill="freeze" begin="14.8s" dur="0.4s" to="#FFFF66"  />
+  <animate attributeName="stroke" fill="freeze" begin="14.8s" dur="0.4s" to="#888888"  />
+  <animate attributeName="x" fill="freeze" begin="17.2s" dur="0.4s" to="390" />
+  <animate attributeName="fill" fill="freeze" begin="17.6s" dur="0.4s" to="#DEE7BE"  />
+  <animate attributeName="stroke" fill="freeze" begin="17.6s" dur="0.4s" to="#748829"  />
+  <animate attributeName="x" fill="freeze" begin="21.6s" dur="0.4s" to="350" />
+</rect>
+<rect id="bar4" class="bar unordered" filter="url(#bevel)" x="190.0" y="128.4" width="20" height="241.6">
+  <animate attributeName="x" fill="freeze" begin="12s" dur="0.4s" to="550" />
+  <animate attributeName="fill" fill="freeze" begin="12s" dur="0.4s" to="#FFFF66"  />
+  <animate attributeName="stroke" fill="freeze" begin="12s" dur="0.4s" to="#888888"  />
+  <animate attributeName="x" fill="freeze" begin="14.4s" dur="0.4s" to="430" />
+  <animate attributeName="fill" fill="freeze" begin="14.8s" dur="0.4s" to="#DEE7BE"  />
+  <animate attributeName="stroke" fill="freeze" begin="14.8s" dur="0.4s" to="#748829"  />
+  <animate attributeName="x" fill="freeze" begin="22s" dur="0.4s" to="390" />
+</rect>
+<rect id="bar5" class="bar unordered" filter="url(#bevel)" x="230.0" y="70.9" width="20" height="299.1">
+  <animate attributeName="x" fill="freeze" begin="8.8s" dur="0.4s" to="550" />
+  <animate attributeName="fill" fill="freeze" begin="8.8s" dur="0.4s" to="#FFFF66"  />
+  <animate attributeName="stroke" fill="freeze" begin="8.8s" dur="0.4s" to="#888888"  />
+  <animate attributeName="x" fill="freeze" begin="11.6s" dur="0.4s" to="510" />
+  <animate attributeName="fill" fill="freeze" begin="12s" dur="0.4s" to="#DEE7BE"  />
+  <animate attributeName="stroke" fill="freeze" begin="12s" dur="0.4s" to="#748829"  />
+  <animate attributeName="x" fill="freeze" begin="22.8s" dur="0.4s" to="470" />
+</rect>
+<rect id="bar6" class="bar unordered" filter="url(#bevel)" x="270.0" y="255.2" width="20" height="114.8">
+  <animate attributeName="x" fill="freeze" begin="7.6s" dur="0.4s" to="550" />
+  <animate attributeName="fill" fill="freeze" begin="7.6s" dur="0.4s" to="#FFFF66"  />
+  <animate attributeName="stroke" fill="freeze" begin="7.6s" dur="0.4s" to="#888888"  />
+  <animate attributeName="x" fill="freeze" begin="8.4s" dur="0.4s" to="350" />
+  <animate attributeName="fill" fill="freeze" begin="8.8s" dur="0.4s" to="#DEE7BE"  />
+  <animate attributeName="stroke" fill="freeze" begin="8.8s" dur="0.4s" to="#748829"  />
+  <animate attributeName="x" fill="freeze" begin="9.6s" dur="0.4s" to="310" />
+  <animate attributeName="x" fill="freeze" begin="12.8s" dur="0.4s" to="270" />
+  <animate attributeName="x" fill="freeze" begin="15.6s" dur="0.4s" to="230" />
+  <animate attributeName="x" fill="freeze" begin="20s" dur="0.4s" to="190" />
+</rect>
+<rect id="bar7" class="bar unordered" filter="url(#bevel)" x="310.0" y="86.9" width="20" height="283.1">
+  <animate attributeName="x" fill="freeze" begin="5.2s" dur="0.4s" to="550" />
+  <animate attributeName="fill" fill="freeze" begin="5.2s" dur="0.4s" to="#FFFF66"  />
+  <animate attributeName="stroke" fill="freeze" begin="5.2s" dur="0.4s" to="#888888"  />
+  <animate attributeName="x" fill="freeze" begin="7.2s" dur="0.4s" to="510" />
+  <animate attributeName="fill" fill="freeze" begin="7.6s" dur="0.4s" to="#DEE7BE"  />
+  <animate attributeName="stroke" fill="freeze" begin="7.6s" dur="0.4s" to="#748829"  />
+  <animate attributeName="x" fill="freeze" begin="11.2s" dur="0.4s" to="470" />
+  <animate attributeName="x" fill="freeze" begin="22.4s" dur="0.4s" to="430" />
+</rect>
+<rect id="bar8" class="bar unordered" filter="url(#bevel)" x="350.0" y="233.0" width="20" height="137">
+  <animate attributeName="x" fill="freeze" begin="4s" dur="0.4s" to="550" />
+  <animate attributeName="fill" fill="freeze" begin="4s" dur="0.4s" to="#FFFF66"  />
+  <animate attributeName="stroke" fill="freeze" begin="4s" dur="0.4s" to="#888888"  />
+  <animate attributeName="x" fill="freeze" begin="4.8s" dur="0.4s" to="430" />
+  <animate attributeName="fill" fill="freeze" begin="5.2s" dur="0.4s" to="#DEE7BE"  />
+  <animate attributeName="stroke" fill="freeze" begin="5.2s" dur="0.4s" to="#748829"  />
+  <animate attributeName="x" fill="freeze" begin="6s" dur="0.4s" to="390" />
+  <animate attributeName="x" fill="freeze" begin="10s" dur="0.4s" to="350" />
+  <animate attributeName="x" fill="freeze" begin="13.2s" dur="0.4s" to="310" />
+  <animate attributeName="x" fill="freeze" begin="16s" dur="0.4s" to="270" />
+  <animate attributeName="x" fill="freeze" begin="20.4s" dur="0.4s" to="230" />
+</rect>
+<rect id="bar9" class="bar unordered" filter="url(#bevel)" x="390.0" y="305.9" width="20" height="64.09">
+  <animate attributeName="x" fill="freeze" begin="3.2s" dur="0.4s" to="550" />
+  <animate attributeName="fill" fill="freeze" begin="3.2s" dur="0.4s" to="#FFFF66"  />
+  <animate attributeName="stroke" fill="freeze" begin="3.2s" dur="0.4s" to="#888888"  />
+  <animate attributeName="x" fill="freeze" begin="3.6s" dur="0.4s" to="430" />
+  <animate attributeName="fill" fill="freeze" begin="4s" dur="0.4s" to="#DEE7BE"  />
+  <animate attributeName="stroke" fill="freeze" begin="4s" dur="0.4s" to="#748829"  />
+  <animate attributeName="x" fill="freeze" begin="4.4s" dur="0.4s" to="390" />
+  <animate attributeName="x" fill="freeze" begin="5.6s" dur="0.4s" to="350" />
+  <animate attributeName="x" fill="freeze" begin="8s" dur="0.4s" to="310" />
+  <animate attributeName="x" fill="freeze" begin="9.2s" dur="0.4s" to="270" />
+  <animate attributeName="x" fill="freeze" begin="12.4s" dur="0.4s" to="230" />
+  <animate attributeName="x" fill="freeze" begin="15.2s" dur="0.4s" to="190" />
+  <animate attributeName="x" fill="freeze" begin="18s" dur="0.4s" to="150" />
+  <animate attributeName="x" fill="freeze" begin="19.2s" dur="0.4s" to="110" />
+  <animate attributeName="x" fill="freeze" begin="24s" dur="0.4s" to="70" />
+</rect>
+<rect id="bar10" class="bar unordered" filter="url(#bevel)" x="430.0" y="143.8" width="20" height="226.2">
+  <animate attributeName="x" fill="freeze" begin="2s" dur="0.4s" to="550" />
+  <animate attributeName="fill" fill="freeze" begin="2s" dur="0.4s" to="#FFFF66"  />
+  <animate attributeName="stroke" fill="freeze" begin="2s" dur="0.4s" to="#888888"  />
+  <animate attributeName="x" fill="freeze" begin="2.8s" dur="0.4s" to="510" />
+  <animate attributeName="fill" fill="freeze" begin="3.2s" dur="0.4s" to="#DEE7BE"  />
+  <animate attributeName="stroke" fill="freeze" begin="3.2s" dur="0.4s" to="#748829"  />
+  <animate attributeName="x" fill="freeze" begin="6.8s" dur="0.4s" to="470" />
+  <animate attributeName="x" fill="freeze" begin="10.8s" dur="0.4s" to="430" />
+  <animate attributeName="x" fill="freeze" begin="14s" dur="0.4s" to="390" />
+  <animate attributeName="x" fill="freeze" begin="16.8s" dur="0.4s" to="350" />
+  <animate attributeName="x" fill="freeze" begin="21.2s" dur="0.4s" to="310" />
+</rect>
+<rect id="bar11" class="bar unordered" filter="url(#bevel)" x="470.0" y="196.9" width="20" height="173.1">
+  <animate attributeName="x" fill="freeze" begin="1.2s" dur="0.4s" to="550" />
+  <animate attributeName="fill" fill="freeze" begin="1.2s" dur="0.4s" to="#FFFF66"  />
+  <animate attributeName="stroke" fill="freeze" begin="1.2s" dur="0.4s" to="#888888"  />
+  <animate attributeName="x" fill="freeze" begin="1.6s" dur="0.4s" to="510" />
+  <animate attributeName="fill" fill="freeze" begin="2s" dur="0.4s" to="#DEE7BE"  />
+  <animate attributeName="stroke" fill="freeze" begin="2s" dur="0.4s" to="#748829"  />
+  <animate attributeName="x" fill="freeze" begin="2.4s" dur="0.4s" to="470" />
+  <animate attributeName="x" fill="freeze" begin="6.4s" dur="0.4s" to="430" />
+  <animate attributeName="x" fill="freeze" begin="10.4s" dur="0.4s" to="390" />
+  <animate attributeName="x" fill="freeze" begin="13.6s" dur="0.4s" to="350" />
+  <animate attributeName="x" fill="freeze" begin="16.4s" dur="0.4s" to="310" />
+  <animate attributeName="x" fill="freeze" begin="20.8s" dur="0.4s" to="270" />
+</rect>
+<rect id="bar12" class="bar unordered" filter="url(#bevel)" x="510.0" y="317.3" width="20" height="52.67">
+  <animate attributeName="fill" fill="freeze" begin="0.8s" dur="0.4s" to="#DEE7BE"  />
+  <animate attributeName="stroke" fill="freeze" begin="0.8s" dur="0.4s" to="#748829"  />
+  <animate attributeName="x" fill="freeze" begin="1.2s" dur="0.4s" to="470" />
+  <animate attributeName="x" fill="freeze" begin="2s" dur="0.4s" to="430" />
+  <animate attributeName="x" fill="freeze" begin="3.2s" dur="0.4s" to="390" />
+  <animate attributeName="x" fill="freeze" begin="4s" dur="0.4s" to="350" />
+  <animate attributeName="x" fill="freeze" begin="5.2s" dur="0.4s" to="310" />
+  <animate attributeName="x" fill="freeze" begin="7.6s" dur="0.4s" to="270" />
+  <animate attributeName="x" fill="freeze" begin="8.8s" dur="0.4s" to="230" />
+  <animate attributeName="x" fill="freeze" begin="12s" dur="0.4s" to="190" />
+  <animate attributeName="x" fill="freeze" begin="14.8s" dur="0.4s" to="150" />
+  <animate attributeName="x" fill="freeze" begin="17.6s" dur="0.4s" to="110" />
+  <animate attributeName="x" fill="freeze" begin="18.8s" dur="0.4s" to="70" />
+  <animate attributeName="x" fill="freeze" begin="23.6s" dur="0.4s" to="30" />
+</rect>
+
+<!-- demo: moving and scaling objects in a group -->
+  <g transform="translate(300,30)">   <!-- better than setting x and y in the text element, animatable -->
+    <text class="title C" x="0" y="0">Insertion Sort</text>
+    <animateTransform attributeName="transform" type="translate" additive="sum" fill="freeze"
+      to="400 30" begin="26s" dur="3s" />
+    <animateTransform attributeName="transform" type="scale" additive="sum" fill="freeze"
+      from="1" to="1.5" begin="26s" dur="1.5s" />
+   
+    <animate attributeName="opacity" attributeType="CSS" fill="freeze" to="0" begin="30s" dur="2s" />  <!-- fade out -->
+  </g>
+
+  <!-- <use> demo. Guarantees a single consistent definition. The copy can be transformed and styled as required. -->
+
+  <use xlink:href="#triangle" class="skyblue" stroke-width="1" stroke="#444444"  transform="translate(540,20),scale(2)">
+    <animateTransform attributeName="transform" type="rotate" additive="sum" fill="freeze"
+      from="0" to="360" begin="30s" dur="3s" />
+  </use>
+     
+</svg>
