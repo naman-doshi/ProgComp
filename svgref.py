@@ -80,6 +80,12 @@ def printIndents(numIndents):
 
 class animation:
     # attributeName can be anything: x, y, fill, stroke etc.
+    '''
+    Can also pass:
+      - min, max, restart, repeatCount, repeatDur, fill
+      - values (list of values 0;5;0), keyTimes (time per value),  from, to, by (offset)
+      - additive (replace/sum), accumulate (none/sum)
+    '''
     def __init__(self, attributeName, begin, duration, to, fill="freeze"):
         self.attributeName = attributeName
         self.fill = fill
@@ -91,6 +97,9 @@ class animation:
         return f'<animate attributeName="{self.attributeName}" fill="{self.fill}" begin="{self.begin}s" dur="{self.duration}s" to="{self.to}" />\n'
 
 class animateTransform:
+    '''
+    for rotate, specify a degree, x, and y
+    '''
     def __init__(self, attributeName, type, begin, dur, from_, to, repeatCount="", fill="freeze"):
         self.attributeName = attributeName
         self.type_ = type
@@ -133,6 +142,9 @@ class line:
         f.write('</line>\n')
 
 class rectangle:
+    '''
+    optional: rx (border radius)
+    '''
     def __init__(self, x, y, width, height, id="", class_=[], filter="", animations=[]):
         self.x = x
         self.y = y

@@ -1,13 +1,15 @@
 from svgref import *
 from copy import deepcopy
 
+
+
 addTitle("15 Puzzle")
 boardbg = rectangle(320, 200, 320, 320, class_=["bg"])
 boardbg.draw()
 
 board = []
 moves = []
-with open("task5.in", "r") as f:
+with open("task5B.dat", "r") as f:
     inp = []
     for line in f:
         inp.append(line.strip().split())
@@ -64,7 +66,6 @@ for i in range(1, 16):
 def isInCorrectPos(i):
     x = locations[str(i)][0]
     y = locations[str(i)][1]
-    print(x, y)
     return i == x+ y*4 + 1
 
 def mov(i):
@@ -81,7 +82,6 @@ def mov(i):
     dx *= sx
     dy = y - curLoc[0]
     dy *= sy
-    print(i, dx, dy)
     anim = animateTransform("transform", "translate", t, 2, f"{transformations[i][0]} {transformations[i][1]}", f"{transformations[i][0]+dy} {transformations[i][1]+dx}")
     transformations[i] = (transformations[i][0]+dy, transformations[i][1]+dx)
     tiles[i].addAnimation(anim)
